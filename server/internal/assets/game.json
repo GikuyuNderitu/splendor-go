@@ -1,0 +1,1610 @@
+{
+  "tokens": {
+    "green": 7,
+    "blue": 7,
+    "red": 7,
+    "black": 7,
+    "white": 7,
+    "gold": 5
+  },
+
+
+  "nobles": [
+    {
+      "image_url": "path_to_url",
+      "value": 3,
+      "costs": [
+        {
+          "type": "white",
+          "amount": 3
+        },
+        {
+          "type": "blue",
+          "amount": 3
+        },
+        {
+          "type": "black",
+          "amount": 3
+        }        
+      ]
+    },
+    {
+      "image_url": "path_to_url",
+      "value": 3,
+      "costs": [
+        {
+          "type": "blue",
+          "amount": 3
+        },
+        {
+          "type": "green",
+          "amount": 3
+        },
+        {
+          "type": "red",
+          "amount": 3
+        }        
+      ]
+    },
+    {
+      "image_url": "path_to_url",
+      "value": 3,
+      "costs": [
+        {
+          "type": "white",
+          "amount": 3
+        },
+        {
+          "type": "red",
+          "amount": 3
+        },
+        {
+          "type": "black",
+          "amount": 3
+        }        
+      ]
+    },
+    {
+      "image_url": "path_to_url",
+      "value": 3,
+      "costs": [
+        {
+          "type": "green",
+          "amount": 4
+        },
+        {
+          "type": "red",
+          "amount": 4
+        }   
+      ]
+    },
+    {
+      "image_url": "path_to_url",
+      "value": 3,
+      "costs": [
+        {
+          "type": "blue",
+          "amount": 4
+        },
+        {
+          "type": "green",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "image_url": "path_to_url",
+      "value": 3,
+      "costs": [
+        {
+          "type": "red",
+          "amount": 4
+        },
+        {
+          "type": "black",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "image_url": "path_to_url",
+      "value": 3,
+      "costs": [
+        {
+          "type": "white",
+          "amount": 4
+        },
+        {
+          "type": "black",
+          "amount": 4
+        }        
+      ]
+    },
+    {
+      "image_url": "path_to_url",
+      "value": 3,
+      "costs": [
+        {
+          "type": "white",
+          "amount": 3
+        },
+        {
+          "type": "blue",
+          "amount": 3
+        },
+        {
+          "type": "green",
+          "amount": 3
+        }        
+      ]
+    },
+    {
+      "image_url": "path_to_url",
+      "value": 3,
+      "costs": [
+        {
+          "type": "green",
+          "amount": 3
+        },
+        {
+          "type": "red",
+          "amount": 3
+        },
+        {
+          "type": "black",
+          "amount": 3
+        }        
+      ]
+    },
+    {
+      "image_url": "path_to_url",
+      "value": 3,
+      "costs": [
+        {
+          "type": "white",
+          "amount": 4
+        },
+        {
+          "type": "blue",
+          "amount": 4
+        }
+      ]
+    }
+  ],
+
+
+  "cards": [
+    [
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 3
+          }          
+        ],
+        "type": "white"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "black",
+            "amount": 1
+          },
+          {
+            "type": "red",
+            "amount": 2
+          }          
+        ],
+        "type": "white"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 1
+          },
+          {
+            "type": "green",
+            "amount": 1
+          },
+          {
+            "type": "red",
+            "amount": 1
+          },
+          {
+            "type": "black",
+            "amount": 1
+          }     
+        ],
+        "type": "white"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 2
+          },
+          {
+            "type": "black",
+            "amount": 2
+          }
+        ],
+        "type": "white"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 4
+          }          
+        ],
+        "type": "white"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 1
+          },
+          {
+            "type": "green",
+            "amount": 2
+          },
+          {
+            "type": "red",
+            "amount": 1
+          },
+          {
+            "type": "black",
+            "amount": 1
+          }
+        ],
+        "type": "white"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 2
+          },
+          {
+            "type": "green",
+            "amount": 2
+          },
+          {
+            "type": "black",
+            "amount": 1
+          }
+        ],
+        "type": "white"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          },
+          {
+            "type": "blue",
+            "amount": 1
+          },
+          {
+            "type": "black",
+            "amount": 1
+          }
+        ],
+        "type": "white"
+      },
+
+
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 1
+          },
+          {
+            "type": "black",
+            "amount": 2
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "black",
+            "amount": 3
+          }          
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 1
+          },
+          {
+            "type": "green",
+            "amount": 1
+          },
+          {
+            "type": "red",
+            "amount": 1
+          },
+          {
+            "type": "black",
+            "amount": 1
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 2
+          },
+          {
+            "type": "black",
+            "amount": 2
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "red",
+            "amount": 4
+          }          
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 1
+          },
+          {
+            "type": "green",
+            "amount": 1
+          },
+          {
+            "type": "red",
+            "amount": 2
+          },
+          {
+            "type": "black",
+            "amount": 1
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 1
+          },
+          {
+            "type": "green",
+            "amount": 2
+          },
+          {
+            "type": "black",
+            "amount": 2
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 1
+          },
+          {
+            "type": "green",
+            "amount": 3
+          },
+          {
+            "type": "red",
+            "amount": 1
+          }
+        ],
+        "type": "blue"
+      },
+
+
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 2
+          },
+          {
+            "type": "blue",
+            "amount": 1
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "red",
+            "amount": 3
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 1
+          },
+          {
+            "type": "blue",
+            "amount": 1
+          },
+          {
+            "type": "red",
+            "amount": 1
+          },
+          {
+            "type": "black",
+            "amount": 1
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 2
+          },
+          {
+            "type": "red",
+            "amount": 2
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "black",
+            "amount": 4
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 1
+          },
+          {
+            "type": "blue",
+            "amount": 1
+          },
+          {
+            "type": "red",
+            "amount": 1
+          },
+          {
+            "type": "black",
+            "amount": 2
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 1
+          },
+          {
+            "type": "red",
+            "amount": 2
+          },
+          {
+            "type": "black",
+            "amount": 2
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 1
+          },
+          {
+            "type": "blue",
+            "amount": 3
+          },
+          {
+            "type": "green",
+            "amount": 1
+          }
+        ],
+        "type": "green"
+      },
+      
+
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 2
+          },
+          {
+            "type": "green",
+            "amount": 1
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 1
+          },
+          {
+            "type": "blue",
+            "amount": 1
+          },
+          {
+            "type": "green",
+            "amount": 1
+          },
+          {
+            "type": "black",
+            "amount": 1
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 2
+          },
+          {
+            "type": "red",
+            "amount": 2
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 4
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 2
+          },
+          {
+            "type": "blue",
+            "amount": 1
+          },
+          {
+            "type": "green",
+            "amount": 1
+          },
+          {
+            "type": "black",
+            "amount": 1
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 2
+          },
+          {
+            "type": "green",
+            "amount": 1
+          },
+          {
+            "type": "black",
+            "amount": 2
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 1
+          },
+          {
+            "type": "red",
+            "amount": 1
+          },
+          {
+            "type": "black",
+            "amount": 3
+          }
+        ],
+        "type": "red"
+      },
+
+
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 2
+          },
+          {
+            "type": "red",
+            "amount": 1
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 3
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 1
+          },
+          {
+            "type": "blue",
+            "amount": 1
+          },
+          {
+            "type": "green",
+            "amount": 1
+          },
+          {
+            "type": "red",
+            "amount": 1
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 2
+          },
+          {
+            "type": "green",
+            "amount": 2
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 4
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 1
+          },
+          {
+            "type": "blue",
+            "amount": 2
+          },
+          {
+            "type": "green",
+            "amount": 1
+          },
+          {
+            "type": "red",
+            "amount": 1
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 2
+          },
+          {
+            "type": "blue",
+            "amount": 2
+          },
+          {
+            "type": "red",
+            "amount": 1
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 0,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 1
+          },
+          {
+            "type": "red",
+            "amount": 3
+          },
+          {
+            "type": "black",
+            "amount": 1
+          }
+        ],
+        "type": "black"
+      }
+    ],
+    [
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "red",
+            "amount": 5
+          }
+        ],
+        "type": "white"
+      },
+      {
+        "points": 3,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 6
+          }
+        ],
+        "type": "white"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 3
+          },
+          {
+            "type": "red",
+            "amount": 2
+          },
+          {
+            "type": "black",
+            "amount": 2
+          }
+        ],
+        "type": "white"
+      },
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 1
+          },
+          {
+            "type": "red",
+            "amount": 4
+          },
+          {
+            "type": "black",
+            "amount": 2
+          }
+        ],
+        "type": "white"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 2
+          },
+          {
+            "type": "blue",
+            "amount": 3
+          },
+          {
+            "type": "red",
+            "amount": 3
+          }
+        ],
+        "type": "white"
+      },
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 5
+          },
+          {
+            "type": "green",
+            "amount": 3
+          }
+        ],
+        "type": "white"
+      },
+
+
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 5
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 3,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 6
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 2
+          },
+          {
+            "type": "blue",
+            "amount": 3
+          },
+          {
+            "type": "black",
+            "amount": 2
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          },
+          {
+            "type": "green",
+            "amount": 2
+          },
+          {
+            "type": "red",
+            "amount": 3
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 4
+          },
+          {
+            "type": "blue",
+            "amount": 2
+          },
+          {
+            "type": "red",
+            "amount": 1
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 5
+          },
+          {
+            "type": "green",
+            "amount": 3
+          }
+        ],
+        "type": "blue"
+      },
+
+
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 5
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 3,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 6
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 2
+          },
+          {
+            "type": "blue",
+            "amount": 3
+          },
+          {
+            "type": "black",
+            "amount": 2
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          },
+          {
+            "type": "green",
+            "amount": 2
+          },
+          {
+            "type": "red",
+            "amount": 3
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 4
+          },
+          {
+            "type": "green",
+            "amount": 2
+          },
+          {
+            "type": "black",
+            "amount": 1
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 3
+          },
+          {
+            "type": "green",
+            "amount": 5
+          }
+        ],
+        "type": "green"
+      },
+
+
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "black",
+            "amount": 5
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 3,
+        "costs": [
+          {
+            "type": "red",
+            "amount": 6
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 2
+          },
+          {
+            "type": "red",
+            "amount": 2
+          },
+          {
+            "type": "black",
+            "amount": 3
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 1
+          },
+          {
+            "type": "blue",
+            "amount": 4
+          },
+          {
+            "type": "green",
+            "amount": 2
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 3
+          },
+          {
+            "type": "red",
+            "amount": 2
+          },
+          {
+            "type": "black",
+            "amount": 3
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          },
+          {
+            "type": "black",
+            "amount": 5
+          }
+        ],
+        "type": "red"
+      },
+
+      
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "black",
+            "amount": 5
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 3,
+        "costs": [
+          {
+            "type": "black",
+            "amount": 6
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          },
+          {
+            "type": "blue",
+            "amount": 2
+          },
+          {
+            "type": "green",
+            "amount": 2
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 1
+          },
+          {
+            "type": "green",
+            "amount": 4
+          },
+          {
+            "type": "red",
+            "amount": 2
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 1,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          },
+          {
+            "type": "green",
+            "amount": 3
+          },
+          {
+            "type": "black",
+            "amount": 2
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 2,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 5
+          },
+          {
+            "type": "red",
+            "amount": 3
+          }
+        ],
+        "type": "black"
+      }
+    ],
+
+
+    [
+      {
+        "points": 4,
+        "costs": [
+          {
+            "type": "black",
+            "amount": 7
+          }          
+        ],
+        "type": "white"
+      },
+      {
+        "points": 5,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          },
+          {
+            "type": "black",
+            "amount": 7
+          }
+        ],
+        "type": "white"
+      },
+      {
+        "points": 4,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          },
+          {
+            "type": "red",
+            "amount": 3
+          },
+          {
+            "type": "black",
+            "amount": 6
+          }          
+        ],
+        "type": "white"
+      },
+      {
+        "points": 3,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 3
+          },
+          {
+            "type": "green",
+            "amount": 3
+          },
+          {
+            "type": "red",
+            "amount": 5
+          },
+          {
+            "type": "black",
+            "amount": 3
+          }
+        ],
+        "type": "white"
+      },
+
+
+      {
+        "points": 4,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 7
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 5,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 7
+          },
+          {
+            "type": "blue",
+            "amount": 3
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 4,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 6
+          },
+          {
+            "type": "blue",
+            "amount": 3
+          },
+          {
+            "type": "black",
+            "amount": 3
+          }
+        ],
+        "type": "blue"
+      },
+      {
+        "points": 3,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          },
+          {
+            "type": "green",
+            "amount": 3
+          },
+          {
+            "type": "red",
+            "amount": 3
+          },
+          {
+            "type": "black",
+            "amount": 5
+          }
+        ],
+        "type": "blue"
+      },
+
+
+      {
+        "points": 4,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 7
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 5,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 7
+          },
+          {
+            "type": "green",
+            "amount": 3
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 4,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          },
+          {
+            "type": "blue",
+            "amount": 6
+          },
+          {
+            "type": "green",
+            "amount": 3
+          }
+        ],
+        "type": "green"
+      },
+      {
+        "points": 3,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 5
+          },
+          {
+            "type": "blue",
+            "amount": 3
+          },
+          {
+            "type": "red",
+            "amount": 3
+          },
+          {
+            "type": "black",
+            "amount": 3
+          }
+        ],
+        "type": "green"
+      },
+
+
+      {
+        "points": 4,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 7
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 5,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 7
+          },
+          {
+            "type": "red",
+            "amount": 3
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 4,
+        "costs": [
+          {
+            "type": "blue",
+            "amount": 3
+          },
+          {
+            "type": "green",
+            "amount": 6
+          },
+          {
+            "type": "red",
+            "amount": 3
+          }
+        ],
+        "type": "red"
+      },
+      {
+        "points": 3,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          },
+          {
+            "type": "blue",
+            "amount": 5
+          },
+          {
+            "type": "green",
+            "amount": 3
+          },
+          {
+            "type": "black",
+            "amount": 3
+          }
+        ],
+        "type": "red"
+      },
+
+
+      {
+        "points": 4,
+        "costs": [
+          {
+            "type": "red",
+            "amount": 7
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 5,
+        "costs": [
+          {
+            "type": "red",
+            "amount": 7
+          },
+          {
+            "type": "black",
+            "amount": 3
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 4,
+        "costs": [
+          {
+            "type": "green",
+            "amount": 3
+          },
+          {
+            "type": "red",
+            "amount": 6
+          },
+          {
+            "type": "black",
+            "amount": 3
+          }
+        ],
+        "type": "black"
+      },
+      {
+        "points": 3,
+        "costs": [
+          {
+            "type": "white",
+            "amount": 3
+          },
+          {
+            "type": "blue",
+            "amount": 3
+          },
+          {
+            "type": "green",
+            "amount": 5
+          },
+          {
+            "type": "red",
+            "amount": 3
+          }
+        ],
+        "type": "black"
+      }
+    ]
+  ]
+}
