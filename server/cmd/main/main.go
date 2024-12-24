@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "atypicaldev/splendor-go/pkg/server"
 
 func main() {
-	fmt.Println("Initial start")
+	server.Run(server.ServerOpts{Addr: ":8080"})
 }
