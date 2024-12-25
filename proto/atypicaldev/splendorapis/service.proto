@@ -1,0 +1,32 @@
+edition = "2023";
+
+package atypicaldev.splendorgoapi.v1;
+
+option go_package = "atypicaldev/splendorapi/v1";
+
+service SplendorService {
+	rpc CreateTable(CreateTableRequest) returns (CreateTableResponse) {}
+
+	rpc JoinTable(JoinTableRequest) returns (JoinTableResponse) {}
+
+	rpc LeaveTable(LeaveTableRequest) returns (LeaveTableResponse) {}
+
+	rpc StartGame(StartGameRequest) returns (StartGameResponse) {}
+}
+
+message CreateTableRequest {}
+
+message CreateTableResponse {}
+
+message JoinTableRequest {}
+
+message JoinTableResponse {}
+
+message LeaveTableRequest {}
+
+message LeaveTableResponse {}
+
+message StartGameRequest {}
+
+message StartGameResponse {}
+
