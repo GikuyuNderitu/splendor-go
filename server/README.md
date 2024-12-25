@@ -111,12 +111,21 @@ players have joined, the game may begin.
 Once all players have joined a game, the game may **start**. The initial game
 state will be generated depending on the number of agents a game has.
 
-<!-- TODO(GikuyuNderitu): Elaborate on the different initial states. -->
+Each card deck is shuffled separately. Each stack is placed in a column from
+high to low, top to bottom. Reveal 4 cards from each level in the same row
+of the matching deck.
 
 The cards and nobles will be generated based on the game id. The cards will be
 generated/randomized the same every time. The nobles will also be randomized
 the same, (ie. all nobles will be considered during randomization), but only
 the first N nobles will be chosen after randomization (N = # players + 1.)
+
+The remaining noble tiles are removed from the game.
+
+Place the coins in 6 distinct piles, sorted by color. There should always be 5
+gold coins. For a 4 player game, there should be 7 coins. For a 3 player game,
+there should be 5 of each non-gold coins. For a 2 player game, there should be
+4 of each coin.
 
 ### Gameplay
 
