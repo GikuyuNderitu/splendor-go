@@ -1,0 +1,15 @@
+edition = "2023";
+
+package atypicaldev.splendorapis.v1;
+
+import "atypicaldev/splendorapis/v1/player.proto";
+
+option go_package = "atypicaldev/splendorapi/v1";
+
+message Table {
+  // Required.
+  string table_id = 1;
+
+  // All players at a table.
+  repeated Player players = 2;
+}
