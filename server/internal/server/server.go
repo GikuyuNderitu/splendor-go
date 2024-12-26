@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+	"fmt"
 
 	spv1 "buf.build/gen/go/atypicaldev/splendorapis/protocolbuffers/go/atypicaldev/splendorapis/v1"
 
@@ -14,7 +15,18 @@ func (s *SplendorService) CreateTable(
 	ctx context.Context,
 	req *connect.Request[spv1.CreateTableRequest],
 ) (*connect.Response[spv1.CreateTableResponse], error) {
-	res := connect.NewResponse(&spv1.CreateTableResponse{})
+	msg := req.Msg
+	fmt.Printf("CreateTable request: %v\n", msg)
+	tableId := "say_hello"
+	table := spv1.Table_builder{
+		TableId: &tableId,
+		Players: []*spv1.Player{
+			{Id: msg.CreatorId},
+		},
+	}.Build()
+	res := connect.NewResponse(&spv1.CreateTableResponse{
+		Table: table,
+	})
 
 	return res, nil
 }

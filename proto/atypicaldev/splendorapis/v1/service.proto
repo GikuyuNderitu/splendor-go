@@ -16,11 +16,13 @@ service SplendorService {
   rpc StartGame(StartGameRequest) returns (StartGameResponse) {}
 }
 
+// Takes an agent's id and creates a table for a game.
 message CreateTableRequest {
   string creator_id = 1;
 }
 
 message CreateTableResponse {
+  // Created Table.
   Table table = 1;
 }
 
