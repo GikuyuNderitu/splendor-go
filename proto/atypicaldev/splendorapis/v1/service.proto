@@ -1,6 +1,6 @@
 edition = "2023";
 
-package atypicaldev.splendorgoapi.v1;
+package atypicaldev.splendorapis.v1;
 
 option go_package = "atypicaldev/splendorapi/v1";
 
