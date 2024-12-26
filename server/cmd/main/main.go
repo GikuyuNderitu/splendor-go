@@ -1,7 +1,7 @@
 package main
 
-import "atypicaldev/splendor-go/pkg/server"
+import "atypicaldev/splendor-go/pkg/setup"
 
 func main() {
-	server.Run(server.ServerOpts{Addr: ":8080"})
+	setup.Run(setup.ServerOpts{Addr: ":8080"})
 }
