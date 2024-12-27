@@ -1,0 +1,26 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    queries: "queries.sql"
+    schema: "migrations"
+    gen:
+      go:
+        package: "data"
+        out: "pkg/data"
+        sql_package: "pgx/v5"
+        overrides:
+          - column: "user_hands.nobles"
+            go_type:
+              slice: true
+              type: "Noble"
+          - column: "user_hands.owned_cards"
+            go_type:
+              slice: true
+              type: "Card"
+          - column: "user_hands.reserved_cards"
+            go_type:
+              slice: true
+              type: "Card"
+          - column: "games.game"
+            go_type:
+              type: "GameData"
