@@ -26,14 +26,35 @@ message CreateTableResponse {
   Table table = 1;
 }
 
-message JoinTableRequest {}
+message JoinTableRequest {
+  // Required. Id of player requested to join.
+  string player_id = 1;
+  // Required. Id of table requested to join.
+  string table_id = 2;
+}
 
-message JoinTableResponse {}
+message JoinTableResponse {
+  // Joined Table.
+  Table table = 1;
+}
 
-message LeaveTableRequest {}
+message LeaveTableRequest {
+  // Required. Id of player requesting to leave.
+  string player_id = 1;
+  // Required. Id of table requesting to leave.
+  string table_id = 2;
+}
 
-message LeaveTableResponse {}
+message LeaveTableResponse {
+  // Left Table.
+  Table table = 1;
+}
 
-message StartGameRequest {}
+message StartGameRequest {
+  // Required. Id of the table requesting start of game.
+  string table_id = 1;
+}
 
-message StartGameResponse {}
+message StartGameResponse {
+  string game_id = 1;
+}
