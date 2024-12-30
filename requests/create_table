@@ -1,0 +1,3 @@
+--header "Content-Type: application/json"
+--data "{\"creator_id\": \"bob_builder\"}"
+--url http://localhost:8080/atypicaldev.splendorapis.v1.SplendorService/CreateTable

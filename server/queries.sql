@@ -13,6 +13,14 @@ WHERE user_id = $1 LIMIT 1;
 -- name: ListTables :many
 SELECT * FROM tables;
 
+-- name: CreateTable :one
+INSERT INTO tables (
+	display_name
+) VALUES (
+	$1
+)
+RETURNING *;
+
 -- name: GetParticipants :many
 SELECT
 	u.user_id,

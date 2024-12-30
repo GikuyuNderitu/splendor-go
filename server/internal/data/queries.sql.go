@@ -66,6 +66,27 @@ func (q *Queries) CreateGame(ctx context.Context, arg CreateGameParams) (Game, e
 	return i, err
 }
 
+const createTable = `-- name: CreateTable :one
+INSERT INTO tables (
+	display_name
+) VALUES (
+	$1
+)
+RETURNING table_id, display_name, created_at, updated_at
+`
+
+func (q *Queries) CreateTable(ctx context.Context, displayName string) (Table, error) {
+	row := q.db.QueryRow(ctx, createTable, displayName)
+	var i Table
+	err := row.Scan(
+		&i.TableID,
+		&i.DisplayName,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+	)
+	return i, err
+}
+
 const createUser = `-- name: CreateUser :one
 INSERT INTO users (
 	name
