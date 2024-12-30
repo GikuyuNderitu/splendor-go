@@ -1,23 +1,67 @@
 package server
 
 import (
+	"atypicaldev/splendor-go/internal/repository"
 	"context"
 	"fmt"
+	"math/rand/v2"
+	"strings"
 
 	spv1 "buf.build/gen/go/atypicaldev/splendorapis/protocolbuffers/go/atypicaldev/splendorapis/v1"
 
 	"connectrpc.com/connect"
 )
 
-type SplendorService struct{}
+type SplendorService struct {
+	Repo repository.SplendorRepository
+}
+
+var adjectives []string = []string{
+	"splendid",
+	"glorious",
+	"bad",
+	"maleficent",
+	"lazy",
+	"industrious",
+}
+
+var nouns = []string{
+	"dog",
+	"river",
+	"cloud",
+	"folder",
+	"sea",
+	"idea",
+	"framework",
+}
+
+func getName() string {
+	ai := rand.N(len(adjectives))
+	ni := rand.N(len(nouns))
+
+	builder := strings.Builder{}
+
+	builder.WriteString(adjectives[ai])
+	builder.WriteString("-")
+
+	builder.WriteString(nouns[ni])
+	return builder.String()
+}
 
 func (s *SplendorService) CreateTable(
 	ctx context.Context,
 	req *connect.Request[spv1.CreateTableRequest],
 ) (*connect.Response[spv1.CreateTableResponse], error) {
+	repo := s.Repo
+
 	msg := req.Msg
 	fmt.Printf("CreateTable request: %v\n", msg)
-	tableId := "say_hello"
+	tableData, err := repo.CreateTable(ctx, getName())
+	if err != nil {
+		return nil, err
+	}
+
+	tableId := tableData.TableID.String()
 	table := spv1.Table_builder{
 		TableId: &tableId,
 		Players: []*spv1.Player{
