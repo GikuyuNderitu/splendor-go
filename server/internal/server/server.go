@@ -3,6 +3,7 @@ package server
 import (
 	"atypicaldev/splendor-go/internal/repository"
 	"context"
+	"errors"
 	"fmt"
 	"math/rand/v2"
 	"strings"
@@ -63,7 +64,8 @@ func (s *SplendorService) CreateTable(
 
 	tableId := tableData.TableID.String()
 	table := spv1.Table_builder{
-		TableId: &tableId,
+		TableId:     &tableId,
+		DisplayName: &tableData.DisplayName,
 		Players: []*spv1.Player{
 			{Id: msg.CreatorId},
 		},
@@ -100,4 +102,11 @@ func (s *SplendorService) StartGame(
 	res := connect.NewResponse(&spv1.StartGameResponse{})
 
 	return res, nil
+}
+
+func (s *SplendorService) ListTables(
+	ctx context.Context,
+	req *connect.Request[spv1.ListTablesRequest],
+) (*connect.Response[spv1.ListTablesResponse], error) {
+	return nil, errors.New("ListTables not implemented")
 }
