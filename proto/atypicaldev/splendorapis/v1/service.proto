@@ -2,6 +2,7 @@ edition = "2023";
 
 package atypicaldev.splendorapis.v1;
 
+import "atypicaldev/splendorapis/v1/game.proto";
 import "atypicaldev/splendorapis/v1/table.proto";
 
 option go_package = "atypicaldev/splendorapi/v1";
@@ -14,11 +15,15 @@ service SplendorService {
   rpc LeaveTable(LeaveTableRequest) returns (LeaveTableResponse) {}
 
   rpc StartGame(StartGameRequest) returns (StartGameResponse) {}
+
+  rpc ListTables(ListTablesRequest) returns (ListTablesResponse) {}
 }
 
 // Takes an agent's id and creates a table for a game.
 message CreateTableRequest {
   string creator_id = 1;
+  // Optional. User provided table name.
+  string table_name = 2;
 }
 
 message CreateTableResponse {
@@ -55,6 +60,15 @@ message StartGameRequest {
   string table_id = 1;
 }
 
+// NextId: 3
 message StartGameResponse {
-  string game_id = 1;
+  Game game = 2;
+
+  reserved 1;
+}
+
+message ListTablesRequest {}
+
+message ListTablesResponse {
+  repeated Table tables = 1;
 }

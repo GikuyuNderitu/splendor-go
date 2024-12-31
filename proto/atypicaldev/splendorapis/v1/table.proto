@@ -12,4 +12,7 @@ message Table {
 
   // All players at a table.
   repeated Player players = 2;
+
+  // Required.
+  string display_name = 3;
 }

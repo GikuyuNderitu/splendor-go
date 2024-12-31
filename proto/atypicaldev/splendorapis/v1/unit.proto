@@ -1,0 +1,49 @@
+edition = "2023";
+
+package atypicaldev.splendorapis.v1;
+
+option go_package = "atypicaldev/splendorapi/v1";
+
+message Card {
+  int32 value = 1;
+  GemType gem = 2;
+  // Usually unsent/false. Only true when player reserves a facedown
+  // (top of deck) card.
+  bool hidden = 3;
+}
+
+enum GemType {
+  GEM_TYPE_UNSPECIFIED = 0;
+  GEM_TYPE_RED = 1;
+  GEM_TYPE_BLUE = 2;
+  GEM_TYPE_GREEN = 3;
+  GEM_TYPE_BROWN = 4;
+  GEM_TYPE_WHITE = 5;
+  // Wildcard only used for coins.
+  GEM_TYPE_GOLD = 6;
+}
+
+message Noble {
+  // List of requirements to display to user.
+  repeated Requirement requirements = 1;
+  // Optional. Image to display on noble tile.
+  string url = 2;
+}
+
+message Requirement {
+  GemType gem = 1;
+  int32 amount = 2;
+}
+
+message Coin {
+  GemType gem = 1;
+}
+
+message CoinBank {
+  repeated Coin red = 1;
+  repeated Coin blue = 2;
+  repeated Coin green = 3;
+  repeated Coin brown = 4;
+  repeated Coin white = 5;
+  repeated Coin gold = 6;
+}
