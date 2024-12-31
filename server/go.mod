@@ -4,7 +4,7 @@ go 1.22.0
 
 require (
 	buf.build/gen/go/atypicaldev/splendorapis/connectrpc/go v1.17.0-20241226103919-8a750350418c.1
-	buf.build/gen/go/atypicaldev/splendorapis/protocolbuffers/go v1.36.1-20241227010529-ee6b7c60061e.1
+	buf.build/gen/go/atypicaldev/splendorapis/protocolbuffers/go v1.36.1-20241231055613-2a8bf6a3bd9f.1
 	connectrpc.com/connect v1.17.0
 	github.com/jackc/pgx/v5 v5.7.2
 	golang.org/x/net v0.23.0
