@@ -1,0 +1,35 @@
+edition = "2023";
+
+package atypicaldev.splendorapis.v1;
+
+import "atypicaldev/splendorapis/v1/player.proto";
+import "atypicaldev/splendorapis/v1/unit.proto";
+
+option go_package = "atypicaldev/splendorapi/v1";
+
+message Game {
+  // Required.
+  string game_id = 1;
+
+  // All players at a table.
+  repeated Player players = 2;
+}
+
+message GameData {
+  // Low Cards
+  repeated Card low_deck = 1;
+  repeated Card low_visible = 2;
+
+  // Mid Cards
+  repeated Card mid_deck = 3;
+  repeated Card mid_visible = 4;
+
+  // High Cards
+  repeated Card high_deck = 5;
+  repeated Card high_visible = 6;
+
+  // Nobles
+  repeated Noble nobles = 7;
+
+  CoinBank bank = 8;
+}

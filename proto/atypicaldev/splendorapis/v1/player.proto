@@ -2,10 +2,24 @@ edition = "2023";
 
 package atypicaldev.splendorapis.v1;
 
+import "atypicaldev/splendorapis/v1/unit.proto";
+
 option go_package = "atypicaldev/splendorapi/v1";
 
 message Player {
   string id = 1;
 
   string name = 2;
+
+  PlayerHand hand = 3;
+}
+
+message PlayerHand {
+  repeated Card owned_cards = 1;
+  repeated Card reserved_cards = 2;
+
+  repeated Noble nobles = 3;
+  // Should be bucketed by gem_type with owned_cards.
+  repeated Coin coins = 4;
+  CoinBank coin_bank = 5;
 }
