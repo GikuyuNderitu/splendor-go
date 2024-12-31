@@ -24,3 +24,7 @@ sql:
           - column: "games.game"
             go_type:
               type: "GameData"
+          - db_type: "uuid"
+            go_type:
+              import: "github.com/google/uuid"
+              type: "UUID"

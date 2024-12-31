@@ -81,9 +81,31 @@ func (s *SplendorService) JoinTable(
 	ctx context.Context,
 	req *connect.Request[spv1.JoinTableRequest],
 ) (*connect.Response[spv1.JoinTableResponse], error) {
-	res := connect.NewResponse(&spv1.JoinTableResponse{})
+	msg := req.Msg
+	tableWithUser, err := s.Repo.JoinTable(ctx, *msg.TableId, *msg.PlayerId)
+	if err != nil {
+		return nil, err
+	}
 
-	return res, nil
+	var players []*spv1.Player
+
+	for _, row := range tableWithUser.Users {
+		id := row.UserID.String()
+		player := &spv1.Player{
+			Name: &row.Name,
+			Id:   &id,
+		}
+		players = append(players, player)
+	}
+
+	tableId := tableWithUser.Table.TableID.String()
+	table := &spv1.Table{
+		TableId:     &tableId,
+		DisplayName: &tableWithUser.Table.DisplayName,
+		Players:     players,
+	}
+
+	return connect.NewResponse(&spv1.JoinTableResponse{Table: table}), nil
 }
 
 func (s *SplendorService) LeaveTable(

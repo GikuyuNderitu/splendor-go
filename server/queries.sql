@@ -21,10 +21,18 @@ INSERT INTO tables (
 )
 RETURNING *;
 
+-- name: JoinTable :exec
+INSERT INTO user_tables (
+  table_id, user_id
+)
+VALUES (
+  $1, $2
+);
+
 -- name: GetParticipants :many
 SELECT
-	u.user_id,
-	u.name
+	sqlc.embed(u),
+  sqlc.embed(t)
 FROM users AS u
 JOIN user_tables AS ut ON u.user_id = ut.user_id
 JOIN tables AS t ON ut.table_id = t.table_id

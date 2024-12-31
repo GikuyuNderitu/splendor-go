@@ -8,6 +8,7 @@ package data
 import (
 	"context"
 
+	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgtype"
 )
 
@@ -21,8 +22,8 @@ RETURNING game_id, user_id, nobles, coins, owned_cards, reserved_cards
 `
 
 type AddPlayerParams struct {
-	GameID pgtype.UUID
-	UserID pgtype.UUID
+	GameID uuid.UUID
+	UserID uuid.UUID
 }
 
 func (q *Queries) AddPlayer(ctx context.Context, arg AddPlayerParams) (UserHand, error) {
@@ -127,8 +128,8 @@ func (q *Queries) GetGame(ctx context.Context, tableID pgtype.UUID) (Game, error
 
 const getParticipants = `-- name: GetParticipants :many
 SELECT
-	u.user_id,
-	u.name
+	u.user_id, u.name, u.created_at, u.updated_at,
+  t.table_id, t.display_name, t.created_at, t.updated_at
 FROM users AS u
 JOIN user_tables AS ut ON u.user_id = ut.user_id
 JOIN tables AS t ON ut.table_id = t.table_id
@@ -136,11 +137,11 @@ WHERE t.table_id = $1
 `
 
 type GetParticipantsRow struct {
-	UserID pgtype.UUID
-	Name   string
+	User  User
+	Table Table
 }
 
-func (q *Queries) GetParticipants(ctx context.Context, tableID pgtype.UUID) ([]GetParticipantsRow, error) {
+func (q *Queries) GetParticipants(ctx context.Context, tableID uuid.UUID) ([]GetParticipantsRow, error) {
 	rows, err := q.db.Query(ctx, getParticipants, tableID)
 	if err != nil {
 		return nil, err
@@ -149,7 +150,16 @@ func (q *Queries) GetParticipants(ctx context.Context, tableID pgtype.UUID) ([]G
 	var items []GetParticipantsRow
 	for rows.Next() {
 		var i GetParticipantsRow
-		if err := rows.Scan(&i.UserID, &i.Name); err != nil {
+		if err := rows.Scan(
+			&i.User.UserID,
+			&i.User.Name,
+			&i.User.CreatedAt,
+			&i.User.UpdatedAt,
+			&i.Table.TableID,
+			&i.Table.DisplayName,
+			&i.Table.CreatedAt,
+			&i.Table.UpdatedAt,
+		); err != nil {
 			return nil, err
 		}
 		items = append(items, i)
@@ -171,7 +181,7 @@ WHERE g.table_id = $1
 `
 
 type GetPlayersRow struct {
-	UserID pgtype.UUID
+	UserID uuid.UUID
 	Name   string
 }
 
@@ -200,7 +210,7 @@ SELECT user_id, name, created_at, updated_at FROM users
 WHERE user_id = $1 LIMIT 1
 `
 
-func (q *Queries) GetUser(ctx context.Context, userID pgtype.UUID) (User, error) {
+func (q *Queries) GetUser(ctx context.Context, userID uuid.UUID) (User, error) {
 	row := q.db.QueryRow(ctx, getUser, userID)
 	var i User
 	err := row.Scan(
@@ -210,6 +220,25 @@ func (q *Queries) GetUser(ctx context.Context, userID pgtype.UUID) (User, error)
 		&i.UpdatedAt,
 	)
 	return i, err
+}
+
+const joinTable = `-- name: JoinTable :exec
+INSERT INTO user_tables (
+  table_id, user_id
+)
+VALUES (
+  $1, $2
+)
+`
+
+type JoinTableParams struct {
+	TableID uuid.UUID
+	UserID  uuid.UUID
+}
+
+func (q *Queries) JoinTable(ctx context.Context, arg JoinTableParams) error {
+	_, err := q.db.Exec(ctx, joinTable, arg.TableID, arg.UserID)
+	return err
 }
 
 const listTables = `-- name: ListTables :many
@@ -248,7 +277,7 @@ WHERE game_id = $1
 `
 
 type UpdateGameParams struct {
-	GameID pgtype.UUID
+	GameID uuid.UUID
 	Game   GameData
 }
 
@@ -264,8 +293,8 @@ WHERE user_id = $1 AND game_id = $2
 `
 
 type UpdateUserCoinsParams struct {
-	UserID pgtype.UUID
-	GameID pgtype.UUID
+	UserID uuid.UUID
+	GameID uuid.UUID
 	Coins  []Gemtype
 }
 
@@ -281,8 +310,8 @@ WHERE user_id = $1 AND game_id = $2
 `
 
 type UpdateUserNobleParams struct {
-	UserID pgtype.UUID
-	GameID pgtype.UUID
+	UserID uuid.UUID
+	GameID uuid.UUID
 	Nobles []Noble
 }
 
@@ -298,8 +327,8 @@ WHERE user_id = $1 AND game_id = $2
 `
 
 type UpdateUserOwnedCardsParams struct {
-	UserID     pgtype.UUID
-	GameID     pgtype.UUID
+	UserID     uuid.UUID
+	GameID     uuid.UUID
 	OwnedCards []Card
 }
 
@@ -315,8 +344,8 @@ WHERE user_id = $1 AND game_id = $2
 `
 
 type UpdateUserReservedParams struct {
-	UserID        pgtype.UUID
-	GameID        pgtype.UUID
+	UserID        uuid.UUID
+	GameID        uuid.UUID
 	ReservedCards []Card
 }
 
