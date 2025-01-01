@@ -1,0 +1,11 @@
+edition = "2023";
+
+package atypicaldev.splendorapis.v1;
+
+option go_package = "atypicaldev/splendorapi/v1";
+
+message User {
+  string email = 1;
+  string id = 2;
+  string name = 3;
+}
