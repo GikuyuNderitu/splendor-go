@@ -41,14 +41,7 @@ func NewRepository(pool *pgxpool.Pool) *splendorRepository {
 }
 
 func (r *splendorRepository) CreateTable(ctx context.Context, displayName string) (*data.Table, error) {
-	conn, err := r.pool.Acquire(ctx)
-	if err != nil {
-		log.Printf("Issue acquiring pool when creating table: %v", err)
-		return nil, err
-	}
-	defer conn.Release()
-
-	queries := data.New(conn)
+	queries := data.New(r.pool)
 	log.Printf("Creating new table with name: %s", displayName)
 	table, err := queries.CreateTable(ctx, displayName)
 	if err != nil {
