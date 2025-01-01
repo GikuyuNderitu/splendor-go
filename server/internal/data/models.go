@@ -8,6 +8,7 @@ import (
 	"database/sql/driver"
 	"fmt"
 
+	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgtype"
 )
 
@@ -58,29 +59,29 @@ func (ns NullGemtype) Value() (driver.Value, error) {
 }
 
 type Game struct {
-	GameID  pgtype.UUID
+	GameID  uuid.UUID
 	HashID  string
 	TableID pgtype.UUID
 	Game    GameData
 }
 
 type Table struct {
-	TableID     pgtype.UUID
+	TableID     uuid.UUID
 	DisplayName string
 	CreatedAt   pgtype.Timestamptz
 	UpdatedAt   pgtype.Timestamptz
 }
 
 type User struct {
-	UserID    pgtype.UUID
+	UserID    uuid.UUID
 	Name      string
 	CreatedAt pgtype.Timestamptz
 	UpdatedAt pgtype.Timestamptz
 }
 
 type UserHand struct {
-	GameID        pgtype.UUID
-	UserID        pgtype.UUID
+	GameID        uuid.UUID
+	UserID        uuid.UUID
 	Nobles        []Noble
 	Coins         []Gemtype
 	OwnedCards    []Card
@@ -89,6 +90,6 @@ type UserHand struct {
 
 type UserTable struct {
 	ID      pgtype.Int8
-	UserID  pgtype.UUID
-	TableID pgtype.UUID
+	UserID  uuid.UUID
+	TableID uuid.UUID
 }
