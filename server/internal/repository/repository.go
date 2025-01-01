@@ -17,7 +17,7 @@ type TableWithUsers struct {
 
 type SplendorRepository interface {
 	CreateTable(ctx context.Context, displayName string) (*data.Table, error)
-	ListTables(ctx context.Context)
+	ListTables(ctx context.Context) ([]data.Table, error)
 	JoinTable(ctx context.Context, tableId, userId string) (*TableWithUsers, error)
 }
 

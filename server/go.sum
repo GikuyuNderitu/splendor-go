@@ -4,6 +4,8 @@ buf.build/gen/go/atypicaldev/splendorapis/protocolbuffers/go v1.36.1-20241227010
 buf.build/gen/go/atypicaldev/splendorapis/protocolbuffers/go v1.36.1-20241227010529-ee6b7c60061e.1/go.mod h1:IS1VLIK2eg6J8vCSpLCYduygS8sZvMO5cttAmreqiVo=
 buf.build/gen/go/atypicaldev/splendorapis/protocolbuffers/go v1.36.1-20241231055613-2a8bf6a3bd9f.1 h1:SW16vcD4Uu5oudeYpKpdhxHbRdORpsEDz57DDcXEJ40=
 buf.build/gen/go/atypicaldev/splendorapis/protocolbuffers/go v1.36.1-20241231055613-2a8bf6a3bd9f.1/go.mod h1:IS1VLIK2eg6J8vCSpLCYduygS8sZvMO5cttAmreqiVo=
+buf.build/gen/go/atypicaldev/splendorapis/protocolbuffers/go v1.36.1-20250101084028-7141d97a72d5.1 h1:VxWy+P1TWT1be8JXGjHpI+lAXRAM5b2FneNv0IE8pTI=
+buf.build/gen/go/atypicaldev/splendorapis/protocolbuffers/go v1.36.1-20250101084028-7141d97a72d5.1/go.mod h1:IS1VLIK2eg6J8vCSpLCYduygS8sZvMO5cttAmreqiVo=
 connectrpc.com/connect v1.17.0 h1:W0ZqMhtVzn9Zhn2yATuUokDLO5N+gIuBWMOnsQrfmZk=
 connectrpc.com/connect v1.17.0/go.mod h1:0292hj1rnx8oFrStN7cB4jjVBeqs+Yx5yDIC2prWDO8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

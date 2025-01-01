@@ -132,3 +132,17 @@ func (s *SplendorService) ListTables(
 ) (*connect.Response[spv1.ListTablesResponse], error) {
 	return nil, errors.New("ListTables not implemented")
 }
+
+func (s *SplendorService) RegisterUser(
+	ctx context.Context,
+	req *connect.Request[spv1.RegisterUserRequest],
+) (*connect.Response[spv1.RegisterUserResponse], error) {
+	return nil, errors.New("RegisterUser not implemented")
+}
+
+func (s *SplendorService) Login(
+	ctx context.Context,
+	req *connect.Request[spv1.LoginRequest],
+) (*connect.Response[spv1.LoginResponse], error) {
+	return nil, errors.New("Login not implemented")
+}
