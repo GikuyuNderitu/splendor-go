@@ -5,6 +5,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
 	"math/rand/v2"
 	"strings"
 
@@ -130,7 +131,26 @@ func (s *SplendorService) ListTables(
 	ctx context.Context,
 	req *connect.Request[spv1.ListTablesRequest],
 ) (*connect.Response[spv1.ListTablesResponse], error) {
-	return nil, errors.New("ListTables not implemented")
+	repoTables, err := s.Repo.ListTables(ctx)
+	if err != nil {
+		log.Printf("Error fetching tables: %v\n", err)
+		return nil, err
+	}
+
+	var tables []*spv1.Table
+	for _, repoTable := range repoTables {
+		tableId := repoTable.TableID.String()
+		table := &spv1.Table{
+			DisplayName: &repoTable.DisplayName,
+			TableId:     &tableId,
+		}
+
+		tables = append(tables, table)
+	}
+
+	return connect.NewResponse(&spv1.ListTablesResponse{
+		Tables: tables,
+	}), nil
 }
 
 func (s *SplendorService) RegisterUser(
