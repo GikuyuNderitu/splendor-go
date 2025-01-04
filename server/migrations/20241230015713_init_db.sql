@@ -3,7 +3,9 @@
 SELECT 'Up SQL query. Init db';
 CREATE TABLE users (
 	user_id UUID DEFAULT gen_random_uuid(),
-	name text NOT NULL,
+	name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  password TEXT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 	updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 	-- Keys
@@ -60,9 +62,10 @@ CREATE TABLE user_hands (
 -- +goose Down
 -- +goose StatementBegin
 SELECT 'Down SQL query. Remove DB.';
+DROP TABLE IF EXISTS user_tables;
+DROP TABLE IF EXISTS user_hands;
+DROP TABLE IF EXISTS games;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS tables;
-DROP TABLE IF EXISTS user_tables;
-DROP TABLE IF EXISTS games;
-DROP TABLE IF EXISTS user_hands;
+DROP TYPE IF EXISTS GemType;
 -- +goose StatementEnd

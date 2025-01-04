@@ -3,7 +3,9 @@
 SELECT 'Up SQL query. Init db';
 CREATE TABLE users (
 	user_id UUID DEFAULT gen_random_uuid(),
-	name text NOT NULL,
+	name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  password TEXT NOT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 	updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 	-- Keys

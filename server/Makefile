@@ -36,6 +36,9 @@ create_migration:
 migrate_up:
 	$(GOOSE_ENV) goose up
 
+migrate_down:
+	$(GOOSE_ENV) goose down
+
 db_setup:
 	$(PG_ENV) sqlc generate
 

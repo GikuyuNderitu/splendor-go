@@ -15,10 +15,15 @@ type TableWithUsers struct {
 	Table data.Table
 }
 
+type RegisterUserParams struct {
+	Email, Name, Password string
+}
+
 type SplendorRepository interface {
 	CreateTable(ctx context.Context, displayName string) (*data.Table, error)
 	ListTables(ctx context.Context) ([]data.Table, error)
 	JoinTable(ctx context.Context, tableId, userId string) (*TableWithUsers, error)
+	RegisterUser(ctx context.Context, params RegisterUserParams) (*data.User, error)
 }
 
 type splendorRepository struct {

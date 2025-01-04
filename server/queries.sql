@@ -10,6 +10,10 @@ RETURNING *;
 SELECT * FROM users
 WHERE user_id = $1 LIMIT 1;
 
+-- name: GetUserByEmail :one
+SELECT * FROM users
+WHERE email = $1 LIMIT 1;
+
 -- name: ListTables :many
 SELECT * FROM tables;
 
