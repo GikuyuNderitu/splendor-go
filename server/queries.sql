@@ -35,7 +35,8 @@ VALUES (
 
 -- name: GetParticipants :many
 SELECT
-  sqlc.embed(t)
+  sqlc.embed(t),
+  sqlc.embed(u)
 FROM users AS u
 JOIN user_tables AS ut ON u.user_id = ut.user_id
 JOIN tables AS t ON ut.table_id = t.table_id

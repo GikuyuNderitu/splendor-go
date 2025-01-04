@@ -136,7 +136,8 @@ func (q *Queries) GetGame(ctx context.Context, tableID pgtype.UUID) (Game, error
 
 const getParticipants = `-- name: GetParticipants :many
 SELECT
-  t.table_id, t.display_name, t.created_at, t.updated_at
+  t.table_id, t.display_name, t.created_at, t.updated_at,
+  u.user_id, u.name, u.email, u.password, u.created_at, u.updated_at
 FROM users AS u
 JOIN user_tables AS ut ON u.user_id = ut.user_id
 JOIN tables AS t ON ut.table_id = t.table_id
@@ -145,6 +146,7 @@ WHERE t.table_id = $1
 
 type GetParticipantsRow struct {
 	Table Table
+	User  User
 }
 
 func (q *Queries) GetParticipants(ctx context.Context, tableID uuid.UUID) ([]GetParticipantsRow, error) {
@@ -161,6 +163,12 @@ func (q *Queries) GetParticipants(ctx context.Context, tableID uuid.UUID) ([]Get
 			&i.Table.DisplayName,
 			&i.Table.CreatedAt,
 			&i.Table.UpdatedAt,
+			&i.User.UserID,
+			&i.User.Name,
+			&i.User.Email,
+			&i.User.Password,
+			&i.User.CreatedAt,
+			&i.User.UpdatedAt,
 		); err != nil {
 			return nil, err
 		}
