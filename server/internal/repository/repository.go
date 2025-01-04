@@ -137,5 +137,18 @@ func (r *splendorRepository) RegisterUser(ctx context.Context, params RegisterUs
 }
 
 func (r *splendorRepository) LoginUser(ctx context.Context, params LoginUserParams) (*data.User, error) {
-	return nil, errors.New("LoginUser unimplemented repository")
+	queries := data.New(r.pool)
+
+	user, err := queries.GetUserByEmail(ctx, params.Email)
+	if err != nil {
+		return nil, err
+	}
+
+	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(params.Password))
+	if err != nil {
+		return nil, err
+	}
+
+	user.Password = ""
+	return &user, nil
 }
