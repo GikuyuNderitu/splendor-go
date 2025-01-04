@@ -17,7 +17,7 @@ SELECT * FROM tables;
 INSERT INTO tables (
   display_name
 ) VALUES (
-	$1
+  $1
 )
 RETURNING *;
 
@@ -39,17 +39,17 @@ WHERE t.table_id = $1;
 
 -- name: CreateGame :one
 INSERT INTO games (
-	hash_id, table_id, game
+  hash_id, table_id, game
 ) VALUES (
-	$1, $2, $3
+  $1, $2, $3
 )
 RETURNING *;
 
 -- name: AddPlayer :one
 INSERT INTO user_hands (
-	game_id, user_id
+  game_id, user_id
 ) VALUES (
-	$1, $2
+  $1, $2
 )
 RETURNING *;
 
