@@ -1,8 +1,8 @@
 -- name: CreateUser :one
 INSERT INTO users (
-	name
+  name, email, hashed_password, 
 ) VALUES (
-	$1
+  $1, $2, $3
 )
 RETURNING *;
 
@@ -15,7 +15,7 @@ SELECT * FROM tables;
 
 -- name: CreateTable :one
 INSERT INTO tables (
-	display_name
+  display_name
 ) VALUES (
 	$1
 )
@@ -31,7 +31,6 @@ VALUES (
 
 -- name: GetParticipants :many
 SELECT
-	sqlc.embed(u),
   sqlc.embed(t)
 FROM users AS u
 JOIN user_tables AS ut ON u.user_id = ut.user_id
