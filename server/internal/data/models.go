@@ -75,6 +75,8 @@ type Table struct {
 type User struct {
 	UserID    uuid.UUID
 	Name      string
+	Email     string
+	Password  string
 	CreatedAt pgtype.Timestamptz
 	UpdatedAt pgtype.Timestamptz
 }

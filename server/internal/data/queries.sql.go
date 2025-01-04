@@ -14,9 +14,9 @@ import (
 
 const addPlayer = `-- name: AddPlayer :one
 INSERT INTO user_hands (
-	game_id, user_id
+  game_id, user_id
 ) VALUES (
-	$1, $2
+  $1, $2
 )
 RETURNING game_id, user_id, nobles, coins, owned_cards, reserved_cards
 `
@@ -42,9 +42,9 @@ func (q *Queries) AddPlayer(ctx context.Context, arg AddPlayerParams) (UserHand,
 
 const createGame = `-- name: CreateGame :one
 INSERT INTO games (
-	hash_id, table_id, game
+  hash_id, table_id, game
 ) VALUES (
-	$1, $2, $3
+  $1, $2, $3
 )
 RETURNING game_id, hash_id, table_id, game
 `
@@ -69,9 +69,9 @@ func (q *Queries) CreateGame(ctx context.Context, arg CreateGameParams) (Game, e
 
 const createTable = `-- name: CreateTable :one
 INSERT INTO tables (
-	display_name
+  display_name
 ) VALUES (
-	$1
+  $1
 )
 RETURNING table_id, display_name, created_at, updated_at
 `
@@ -90,19 +90,27 @@ func (q *Queries) CreateTable(ctx context.Context, displayName string) (Table, e
 
 const createUser = `-- name: CreateUser :one
 INSERT INTO users (
-	name
+  name, email, password
 ) VALUES (
-	$1
+  $1, $2, $3
 )
-RETURNING user_id, name, created_at, updated_at
+RETURNING user_id, name, email, password, created_at, updated_at
 `
 
-func (q *Queries) CreateUser(ctx context.Context, name string) (User, error) {
-	row := q.db.QueryRow(ctx, createUser, name)
+type CreateUserParams struct {
+	Name     string
+	Email    string
+	Password string
+}
+
+func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, error) {
+	row := q.db.QueryRow(ctx, createUser, arg.Name, arg.Email, arg.Password)
 	var i User
 	err := row.Scan(
 		&i.UserID,
 		&i.Name,
+		&i.Email,
+		&i.Password,
 		&i.CreatedAt,
 		&i.UpdatedAt,
 	)
@@ -128,7 +136,6 @@ func (q *Queries) GetGame(ctx context.Context, tableID pgtype.UUID) (Game, error
 
 const getParticipants = `-- name: GetParticipants :many
 SELECT
-	u.user_id, u.name, u.created_at, u.updated_at,
   t.table_id, t.display_name, t.created_at, t.updated_at
 FROM users AS u
 JOIN user_tables AS ut ON u.user_id = ut.user_id
@@ -137,7 +144,6 @@ WHERE t.table_id = $1
 `
 
 type GetParticipantsRow struct {
-	User  User
 	Table Table
 }
 
@@ -151,10 +157,6 @@ func (q *Queries) GetParticipants(ctx context.Context, tableID uuid.UUID) ([]Get
 	for rows.Next() {
 		var i GetParticipantsRow
 		if err := rows.Scan(
-			&i.User.UserID,
-			&i.User.Name,
-			&i.User.CreatedAt,
-			&i.User.UpdatedAt,
 			&i.Table.TableID,
 			&i.Table.DisplayName,
 			&i.Table.CreatedAt,
@@ -206,7 +208,7 @@ func (q *Queries) GetPlayers(ctx context.Context, tableID pgtype.UUID) ([]GetPla
 }
 
 const getUser = `-- name: GetUser :one
-SELECT user_id, name, created_at, updated_at FROM users
+SELECT user_id, name, email, password, created_at, updated_at FROM users
 WHERE user_id = $1 LIMIT 1
 `
 
@@ -216,6 +218,27 @@ func (q *Queries) GetUser(ctx context.Context, userID uuid.UUID) (User, error) {
 	err := row.Scan(
 		&i.UserID,
 		&i.Name,
+		&i.Email,
+		&i.Password,
+		&i.CreatedAt,
+		&i.UpdatedAt,
+	)
+	return i, err
+}
+
+const getUserByEmail = `-- name: GetUserByEmail :one
+SELECT user_id, name, email, password, created_at, updated_at FROM users
+WHERE email = $1 LIMIT 1
+`
+
+func (q *Queries) GetUserByEmail(ctx context.Context, email string) (User, error) {
+	row := q.db.QueryRow(ctx, getUserByEmail, email)
+	var i User
+	err := row.Scan(
+		&i.UserID,
+		&i.Name,
+		&i.Email,
+		&i.Password,
 		&i.CreatedAt,
 		&i.UpdatedAt,
 	)
