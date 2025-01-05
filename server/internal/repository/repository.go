@@ -8,7 +8,6 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgxpool"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -34,7 +33,7 @@ type SplendorRepository interface {
 }
 
 type splendorRepository struct {
-	pool *pgxpool.Pool
+	db data.DBTX
 }
 
 var (
@@ -46,16 +45,13 @@ var (
 	ErrFetchingTableWithParticipants = errors.New("Error fetching table with participants")
 )
 
-func NewRepository(pool *pgxpool.Pool) *splendorRepository {
-	if err := pool.Ping(context.Background()); err != nil {
-		log.Panicf("Error pinging postgres while setting up table repo: %v", err)
-	}
+func New(db data.DBTX) *splendorRepository {
 
-	return &splendorRepository{pool}
+	return &splendorRepository{db}
 }
 
 func (r *splendorRepository) CreateTable(ctx context.Context, displayName string) (*data.Table, error) {
-	queries := data.New(r.pool)
+	queries := data.New(r.db)
 	log.Printf("Creating new table with name: %s", displayName)
 	table, err := queries.CreateTable(ctx, displayName)
 	if err != nil {
@@ -66,14 +62,14 @@ func (r *splendorRepository) CreateTable(ctx context.Context, displayName string
 }
 
 func (r *splendorRepository) ListTables(ctx context.Context) ([]data.Table, error) {
-	queries := data.New(r.pool)
+	queries := data.New(r.db)
 
 	log.Println("Fetching tables")
 	return queries.ListTables(ctx)
 }
 
 func (r *splendorRepository) JoinTable(ctx context.Context, tableId, userId string) (*TableWithUsers, error) {
-	queries := data.New(r.pool)
+	queries := data.New(r.db)
 
 	log.Println("Joining table")
 	uId, err := uuid.Parse(userId)
@@ -111,7 +107,7 @@ func (r *splendorRepository) JoinTable(ctx context.Context, tableId, userId stri
 }
 
 func (r *splendorRepository) RegisterUser(ctx context.Context, params RegisterUserParams) (*data.User, error) {
-	queries := data.New(r.pool)
+	queries := data.New(r.db)
 
 	_, err := queries.GetUserByEmail(ctx, params.Email)
 	if err != nil && !errors.Is(pgx.ErrNoRows, err) {
@@ -137,7 +133,7 @@ func (r *splendorRepository) RegisterUser(ctx context.Context, params RegisterUs
 }
 
 func (r *splendorRepository) LoginUser(ctx context.Context, params LoginUserParams) (*data.User, error) {
-	queries := data.New(r.pool)
+	queries := data.New(r.db)
 
 	user, err := queries.GetUserByEmail(ctx, params.Email)
 	if err != nil {

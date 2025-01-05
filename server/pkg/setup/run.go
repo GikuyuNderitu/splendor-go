@@ -67,21 +67,13 @@ func Run(opts ServerOpts) {
 	if err != nil {
 		panic(err)
 	}
-
 	defer pool.Close()
 
 	if err = pool.Ping(context.Background()); err != nil {
-		log.Printf("Error pinging db")
+		panic("Error pinging db on server startup")
 	}
-	var greeting string
+	repo := repository.New(pool)
 
-	if err != nil {
-		panic("error reading simple select")
-	}
-
-	log.Println(greeting)
-
-	repo := repository.NewRepository(pool)
 	svc := &server.SplendorService{
 		Repo: repo,
 	}
