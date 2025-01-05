@@ -132,7 +132,10 @@ func (r *splendorRepository) RegisterUser(ctx context.Context, params RegisterUs
 	return &user, nil
 }
 
-func (r *splendorRepository) LoginUser(ctx context.Context, params LoginUserParams) (*data.User, error) {
+func (r *splendorRepository) LoginUser(
+	ctx context.Context,
+	params LoginUserParams,
+) (*data.User, error) {
 	queries := data.New(r.db)
 
 	user, err := queries.GetUserByEmail(ctx, params.Email)
@@ -140,7 +143,10 @@ func (r *splendorRepository) LoginUser(ctx context.Context, params LoginUserPara
 		return nil, err
 	}
 
-	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(params.Password))
+	err = bcrypt.CompareHashAndPassword(
+		[]byte(user.Password),
+		[]byte(params.Password),
+	)
 	if err != nil {
 		return nil, err
 	}
