@@ -12,6 +12,52 @@ import (
 	"github.com/jackc/pgx/v5/pgtype"
 )
 
+type Eventtype string
+
+const (
+	EventtypeStart          Eventtype = "start"
+	EventtypeTakeCoin       Eventtype = "take_coin"
+	EventtypeReserve        Eventtype = "reserve"
+	EventtypePurchaseCard   Eventtype = "purchase_card"
+	EventtypePointsAchieved Eventtype = "points_achieved"
+	EventtypeGameEnd        Eventtype = "game_end"
+)
+
+func (e *Eventtype) Scan(src interface{}) error {
+	switch s := src.(type) {
+	case []byte:
+		*e = Eventtype(s)
+	case string:
+		*e = Eventtype(s)
+	default:
+		return fmt.Errorf("unsupported scan type for Eventtype: %T", src)
+	}
+	return nil
+}
+
+type NullEventtype struct {
+	Eventtype Eventtype
+	Valid     bool // Valid is true if Eventtype is not NULL
+}
+
+// Scan implements the Scanner interface.
+func (ns *NullEventtype) Scan(value interface{}) error {
+	if value == nil {
+		ns.Eventtype, ns.Valid = "", false
+		return nil
+	}
+	ns.Valid = true
+	return ns.Eventtype.Scan(value)
+}
+
+// Value implements the driver Valuer interface.
+func (ns NullEventtype) Value() (driver.Value, error) {
+	if !ns.Valid {
+		return nil, nil
+	}
+	return string(ns.Eventtype), nil
+}
+
 type Gemtype string
 
 const (
@@ -63,6 +109,13 @@ type Game struct {
 	HashID  string
 	TableID pgtype.UUID
 	Game    GameData
+}
+
+type GameEvent struct {
+	EventID   int64
+	GameID    pgtype.UUID
+	EventType NullEventtype
+	Game      GameData
 }
 
 type Table struct {

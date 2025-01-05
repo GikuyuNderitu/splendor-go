@@ -1,6 +1,10 @@
 -- +goose Up
 -- +goose StatementBegin
 SELECT 'Up SQL query. Init db';
+
+CREATE TYPE GemType AS ENUM ('green', 'blue', 'red', 'brown', 'white', 'gold');
+CREATE TYPE EventType AS ENUM('start', 'take_coin', 'reserve', 'purchase_card', 'points_achieved', 'game_end');
+
 CREATE TABLE users (
 	user_id UUID DEFAULT gen_random_uuid(),
 	name TEXT NOT NULL,
@@ -23,8 +27,8 @@ CREATE TABLE tables (
 
 CREATE TABLE user_tables (
 	id BIGSERIAL,
-	user_id uuid,
-	table_id uuid,
+	user_id UUID,
+	table_id UUID,
 	--- Keys
 	PRIMARY KEY (user_id, table_id),
 	CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES users(user_id),
@@ -42,7 +46,16 @@ CREATE TABLE games (
 	CONSTRAINT fk_table FOREIGN KEY(table_id) REFERENCES tables(table_id)
 );
 
-CREATE TYPE GemType AS ENUM ('green', 'blue', 'red', 'brown', 'white', 'gold');
+CREATE TABLE game_events (
+  event_id BIGSERIAL,
+  game_id UUID,
+  event_type EventType,
+  game jsonb,
+  -- Keys
+  PRIMARY KEY (event_id),
+  CONSTRAINT fk_game FOREIGN KEY(game_id) REFERENCES games(game_id)
+);
+
 
 CREATE TABLE user_hands (
 	game_id UUID,
@@ -68,4 +81,5 @@ DROP TABLE IF EXISTS games;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS tables;
 DROP TYPE IF EXISTS GemType;
+DROP TYPE IF EXISTS EventType;
 -- +goose StatementEnd
