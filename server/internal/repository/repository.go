@@ -151,6 +151,7 @@ func (r *splendorRepository) LoginUser(
 		return nil, err
 	}
 
+	// Clear password so clients can't access
 	user.Password = ""
 	return &user, nil
 }
